@@ -258,6 +258,7 @@ def plot_ploty(embeddings_2d, labels, labels_dict, file_name):
     fig.write_image(file_name, width=1920, height=1080)
 
 def run_embedding_test(engine):
+    download_dataset()
     print("Getting emails...")
     emails = get_emails()
     # Concat all email IDs and print a hash
@@ -270,7 +271,7 @@ def run_embedding_test(engine):
         if not body:
             continue
         text = subject + "\n" + body # TODO: Should I use a separator token here? Who knows.
-        text = re.sub(r'\s+', ' ', text) # Should I remove all newlines? I think so? Who knows.
+        # text = re.sub(r'\s+', ' ', text) # Is this a good idea? Aren't newlines bad for embedding performance? Should test.
         embeddings.append(get_embeddings(text, engine))
     embeddings = np.array(embeddings)
     print("Clustering...")

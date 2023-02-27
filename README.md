@@ -4,14 +4,16 @@ Theoretically this is a universe of code for playing with embeddings. In reality
 ![](https://user-images.githubusercontent.com/279531/221034510-aa4084a9-86dd-4ddc-99de-8718acd211b4.png)
 
 ### bench.py
-
-Once you install the various libraries it needs, you can run it with python bench.py. It will:
+This file benchmarks various embeddings using the Enron email corpus. Once you install the various libraries it needs, you can run it with python bench.py. It will:
 * Download the Enron email dataset.
 * Unzip it.
 * Attempt to run embeddings on it (with OpenAI's embedder as a default, you can change that at the end of the file to T5, or some other engine.)
 * Cluster the embeddings.
 * Label the clusters by sampling the subject lines from the clusters and sending them to GPT-3.
 * Show you a pretty chart, like the one you see above. 
+
+### viz.py
+Visualization helper. This file helps you go from "a list of embeddings" to "something pretty to look at". 
 
 ### TODO:
 * Make longer embeddings work by chunking and averaging out the results.

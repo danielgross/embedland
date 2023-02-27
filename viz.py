@@ -9,7 +9,7 @@ from sklearn.cluster import KMeans
 
 
 def cluster(embeddings, labels, cluster_count=10):
-    """Cluster the embeddings and return the cluster labels."""
+    """Cluster the embeddings and return embeddings and cluster labels."""
     if not isinstance(embeddings, np.ndarray):
         embeddings = np.array(embeddings)
     kmeans = KMeans(n_clusters=cluster_count, random_state=42)
